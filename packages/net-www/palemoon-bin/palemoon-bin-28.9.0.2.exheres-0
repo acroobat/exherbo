@@ -1,0 +1,52 @@
+
+PLATFORMS="~x86 ~amd64"
+SUMMARY="Pale Moon Web Browser"
+HOMEPAGE="https://www.palemoon.org/"
+
+SLOT="0"
+LICENCES="MPL-2.0 GPL-2 LGPL-2.1"
+MYOPTIONS=""
+
+MY_PN="${PN/-bin/}"
+DOWNLOADS="
+    listed-only:
+	https://linux.palemoon.org/datastore/release/${MY_PN}-${PV}.linux-x86_64.tar.xz"
+
+DEPENDENCIES="
+    run:
+	dev-libs/atk
+	sys-apps/dbus[>=0.60]
+	dev-libs/dbus-glib[>=0.60]
+	sys-sound/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype[>=2.1.0]
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+:2[>=2.10]
+	x11-libs/libX11
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrender
+	x11-libs/libXt
+	x11-libs/pango
+"
+
+WORK="${WORKBASE}/${MY_PN}"
+
+pkg_setup() {
+    exdirectory --allow /opt
+}
+
+src_install() {
+    local dest="/opt/${PN}"
+    insinto "${dest}"
+    exeinto "${dest}"
+
+    doexe *.so palemoon palemoon-bin plugin-container updater run-mozilla.sh
+    doins -r browser fonts defaults dictionaries icons *.dat *.chk *.ini *.ja *.list
+    dodir "/usr/$(exhost --target)/bin"
+    dosym "${dest}/${PN}" "/usr/$(exhost --target)/bin/${PN}"
+    dosym "/usr/lib/nsbrowser/plugins" "${dest}/browser/plugins"
+}
