@@ -1,0 +1,21 @@
+# Copyright 2019 Danilo Spinella <danyspin97@protonmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="https://hg.sr.ht/~scoopta/${PN}"
+require scm-hg
+require meson
+
+SUMMARY="Root Bar is a bar for wlroots based wayland compositors such as sway and was designed to address the lack of good bars for wayland"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        virtual/pkg-config
+    build+run:
+        sys-libs/wayland
+        x11-libs/gtk+:3
+        dev-libs/json-c
+"

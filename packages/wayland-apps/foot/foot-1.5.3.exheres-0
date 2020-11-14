@@ -1,0 +1,6 @@
+GITHUB_BRANCH=master
+
+require foot
+
+PLATFORMS="~amd64"
+
