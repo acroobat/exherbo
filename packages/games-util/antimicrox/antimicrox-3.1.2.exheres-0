@@ -1,0 +1,28 @@
+# Copyright 2016 Julian Ospald <hasufell@posteo.de>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user='AntiMicroX' tag=${PV} ] cmake [ api=2 ]
+
+SUMMARY="Graphical program used to map keyboard buttons and mouse controls to a gamepad"
+
+LICENCES="GPL3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+DEPENDENCIES="
+    build+run:
+        x11-libs/qtbase:5
+        x11-libs/qttools:5 
+        kde-frameworks/extra-cmake-modules
+        media-libs/SDL:2
+        dev-util/itstool
+"
+
+
+CMAKE_SRC_CONFIGURE_PARAMS=(
+    -DUSE_SDL_2=ON
+    -DAPPDATA=ON
+    -DWITH_UINPUT=ON
+    -DWITH_X11=ON
+    -DWITH_XTEST=ON
+)
