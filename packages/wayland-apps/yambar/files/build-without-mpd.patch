@@ -1,0 +1,36 @@
+--- a/plugin.c	2020-12-19 11:21:33.000000000 +0000
++++ b/plugin.c	2021-01-13 16:27:10.874484714 +0000
+@@ -38,7 +38,6 @@
+ EXTERN_MODULE(clock);
+ EXTERN_MODULE(i3);
+ EXTERN_MODULE(label);
+-EXTERN_MODULE(mpd);
+ EXTERN_MODULE(network);
+ EXTERN_MODULE(removables);
+ EXTERN_MODULE(river);
+@@ -113,7 +112,6 @@
+     REGISTER_CORE_MODULE(clock, clock);
+     REGISTER_CORE_MODULE(i3, i3);
+     REGISTER_CORE_MODULE(label, label);
+-    REGISTER_CORE_MODULE(mpd, mpd);
+     REGISTER_CORE_MODULE(network, network);
+     REGISTER_CORE_MODULE(removables, removables);
+ #if defined(HAVE_PLUGIN_river)
+--- a/modules/meson.build	2020-12-19 11:21:33.000000000 +0000
++++ b/modules/meson.build	2021-01-13 16:24:10.108966874 +0000
+@@ -5,7 +5,6 @@
+ alsa = dependency('alsa')
+ udev = dependency('libudev')
+ json = dependency('json-c')
+-mpd = dependency('libmpdclient')
+ xcb_xkb = dependency('xcb-xkb', required: get_option('backend-x11'))
+ 
+ # Module name -> (source-list, dep-list)
+@@ -16,7 +15,6 @@
+   'clock': [[], []],
+   'i3': [['i3-common.c', 'i3-common.h'], [dynlist, json]],
+   'label': [[], []],
+-  'mpd': [[], [mpd]],
+   'network': [[], []],
+   'removables': [[], [dynlist, udev]],
+   'script': [[], []],
