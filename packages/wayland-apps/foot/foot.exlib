@@ -8,29 +8,22 @@ DESCRIPTION="The fast, lightweight and minimalistic Wayland terminal emulator."
 
 LICENCES="MIT"
 SLOT="0"
-MYOPTIONS="
-    ( providers: ijg-jpeg jpeg-turbo ) [[ number-selected = exactly-one ]]
-"
+MYOPTIONS=""
 
 DEPENDENCIES="
     build:
-        sys-devel/bison
-        sys-devel/flex
+        sys-devel/ninja
+        sys-devel/meson[>=0.53.0]
     build+run:
-        dev-libs/glib:2[>=2.40]
-        gnome-desktop/librsvg:2[>=2.0]
-        x11-libs/cairo[X]
-        x11-libs/libxcb
-        x11-libs/libxkbcommon[X]
-        x11-libs/pango
-        x11-libs/startup-notification
-        x11-utils/xcb-util
-        x11-utils/xcb-util-wm
-        x11-utils/xcb-util-xrm
-        providers:ijg-jpeg? ( media-libs/jpeg:= )
-        providers:jpeg-turbo? ( media-libs/libjpeg-turbo )
-    test:
-        dev-libs/check[>=0.11.0]
-        x11-apps/xkeyboard-config
+        app-doc/scdoc
+        media-libs/fcft
+        media-libs/fontconfig
+        media-libs/freetype
+        media-libs/tllist
+        sys-libs/ncurses
+        sys-libs/wayland
+        sys-libs/wayland-protocols
+        x11-libs/libxkbcommon[wayland]
+        x11-libs/pixman       
 "
 
