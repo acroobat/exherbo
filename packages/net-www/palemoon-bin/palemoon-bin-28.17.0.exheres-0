@@ -10,7 +10,7 @@ MYOPTIONS=""
 MY_PN="${PN/-bin/}"
 DOWNLOADS="
     listed-only:
-	https://linux.palemoon.org/datastore/release/${MY_PN}-${PV}.linux-x86_64.tar.xz"
+	https://linux.palemoon.org/datastore/release/${MY_PN}-${PV}.linux-x86_64-gtk2.tar.xz"
 
 DEPENDENCIES="
     run:
