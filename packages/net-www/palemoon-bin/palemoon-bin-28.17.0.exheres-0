@@ -45,7 +45,7 @@ src_install() {
     exeinto "${dest}"
 
     doexe *.so palemoon palemoon-bin plugin-container updater run-mozilla.sh
-    doins -r browser fonts defaults dictionaries icons *.dat *.chk *.ini *.ja *.list
+    doins -r browser fonts defaults dictionaries icons *.dat *.chk *.ini *.res *.list
     dodir "/usr/$(exhost --target)/bin"
     dosym "${dest}/${PN}" "/usr/$(exhost --target)/bin/${PN}"
     dosym "/usr/lib/nsbrowser/plugins" "${dest}/browser/plugins"
