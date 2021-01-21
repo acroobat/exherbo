@@ -1,0 +1,79 @@
+# Copyright 2010 Saleem Abdulrasool <compnerd@compnerd.org>
+# Copyright 2011 Brett Witherspoon <spoonb@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+
+#require cargo [ rust_minimum_version=1.39 ]
+
+require gnome.org [ suffix=tar.xz ]
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.16 1.15 ] ]
+require vala [ with_opt=true ]
+
+export_exlib_phases src_unpack src_configure src_compile src_install src_test pkg_postinst pkg_postrm
+
+SUMMARY="SVG parsing library"
+HOMEPAGE="http://live.gnome.org/LibRsvg"
+
+LICENCES="LGPL-2.1"
+SLOT="2"
+MYOPTIONS="
+    gobject-introspection
+    gtk-doc
+"
+
+DEPENDENCIES="
+    build:
+        sys-devel/gettext
+        virtual/pkg-config[>=0.18]
+        gtk-doc? ( dev-doc/gtk-doc[>=1.13] )
+    build+run:
+        dev-libs/glib:2[>=2.48.0]
+        dev-libs/libxml2:2.0[>=2.9]
+        media-libs/fontconfig
+        media-libs/freetype[>=2.8]
+        x11-libs/cairo[>=1.16.0]
+        x11-libs/gdk-pixbuf:2.0[>=2.20][gobject-introspection?]
+        x11-libs/pango[>=1.38]
+        gobject-introspection? ( gnome-desktop/gobject-introspection:1[>=0.10.8] )
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --disable-tools
+)
+
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=(
+    'gobject-introspection introspection'
+    'gtk-doc'
+    'vapi vala'
+)
+
+librsvg_src_unpack() {
+    default
+}
+
+librsvg_src_configure() {
+    default
+}
+
+librsvg_src_compile() {
+    default
+}
+
+librsvg_src_install() {
+    default
+}
+
+librsvg_src_test() {
+    default
+}
+
+librsvg_pkg_postinst() {
+    echo "Generating pixbuf loader list ..."
+    nonfatal edo gdk-pixbuf-query-loaders --update-cache || ewarn "Querying pixbuf loaders failed"
+}
+
+librsvg_pkg_postrm() {
+    echo "Generating pixbuf loader list ..."
+    nonfatal edo gdk-pixbuf-query-loaders --update-cache || ewarn "Querying pixbuf loaders failed"
+}
+
