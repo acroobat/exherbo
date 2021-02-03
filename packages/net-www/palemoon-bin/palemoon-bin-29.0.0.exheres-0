@@ -10,7 +10,7 @@ MYOPTIONS=""
 MY_PN="${PN/-bin/}"
 DOWNLOADS="
     listed-only:
-	https://linux.palemoon.org/datastore/release/${MY_PN}-${PV}.linux-x86_64-gtk2.tar.xz"
+	https://linux.palemoon.org/datastore/release/${MY_PN}-${PV}.linux-x86_64-gtk3.tar.xz"
 
 DEPENDENCIES="
     run:
@@ -22,7 +22,7 @@ DEPENDENCIES="
 	media-libs/freetype[>=2.1.0]
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
-	x11-libs/gtk+:2[>=2.10]
+	x11-libs/gtk+:3
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
