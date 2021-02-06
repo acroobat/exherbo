@@ -10,21 +10,32 @@ PLATFORMS="~amd64 ~x86"
 
 DEPENDENCIES=""
 
+DEFAULT_SRC_PREPARE_PATCHES+=(
+	"${FILES}"/${PN}-0.20.0-paths.patch
+)
+
+pkg_setup() {
+    exdirectory --allow /opt
+}
+
 src_configure() {
-	edo sed -e "55s/nim/usr\/$(exhost --target)/" -i install.sh
-	edo sed -e "56s/nim\/config/etc\/nim/" -i install.sh
-	edo sed -e "57s/nim\/lib/usr\/$(exhost --target)\/lib\/nim/" -i install.sh
-	edo sed -e "58s/nim/usr\/share\/nim/" -i install.sh
-	edo sed -e "59s/nim/usr\/share\/nim/" -i install.sh
-	edo sed -e "60s/\/nim/\/usr\/$(exhost --target)\/lib\/nim/" -i install.sh
-	edo sed -e "61d" -i install.sh
+	edo sed -e "32s/\/bin/\/$(exhost --target)\/bin/" -i tools/niminst/install.nimf
+	edo sed -e "34s/\/lib/\/$(exhost --target)\/lib/" -i tools/niminst/install.nimf
+	export LD="${CC}"
+	echo "gcc.exe =\"${CC}\"" >> config/nim.cfg
+	echo "gcc.linkerexe =\"${CC}\"" >> config/nim.cfg
 }
 
 src_compile() {
 	edo ./build.sh
+	edo ./bin/nim c koch
+	edo ./koch boot -d:release -d:useGnuReadline
+	edo ./koch tools
 }
 
 src_install() {
-	edo ./install.sh ${IMAGE}
+	edo ./koch install ${IMAGE}
 	keepdir /usr/share/nim/doc
+	keepdir /usr/share/nim/data
+	dobashcompletion tools/nim.bash-completion ${PN}
 }
