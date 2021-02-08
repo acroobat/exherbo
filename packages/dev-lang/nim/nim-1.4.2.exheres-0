@@ -24,6 +24,7 @@ src_configure() {
 	export LD="${CC}"
 	echo "gcc.exe =\"${CC}\"" >> config/nim.cfg
 	echo "gcc.linkerexe =\"${CC}\"" >> config/nim.cfg
+	echo "lib="$lib/nim"" >> config/nim.cfg
 }
 
 src_compile() {
