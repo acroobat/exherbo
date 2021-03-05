@@ -24,7 +24,6 @@ src_configure() {
 	export LD="${CC}"
 	echo "gcc.exe =\"${CC}\"" >> config/nim.cfg
 	echo "gcc.linkerexe =\"${CC}\"" >> config/nim.cfg
-	echo "lib="$lib/nim"" >> config/nim.cfg
 }
 
 src_compile() {
@@ -36,6 +35,7 @@ src_compile() {
 
 src_install() {
 	edo ./koch install ${IMAGE}
+	sed  -i '1s/^/lib="$lib\/nim"\n/' ${IMAGE}/etc/nim/nim.cfg
 	keepdir /usr/share/nim/doc
 	keepdir /usr/share/nim/data
 	dobashcompletion tools/nim.bash-completion ${PN}
