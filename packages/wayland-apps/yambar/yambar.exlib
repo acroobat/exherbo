@@ -7,15 +7,20 @@ SUMMARY="Modular status panel for X11 and Wayland, inspired by polybar"
 
 LICENCES="MIT"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="X wayland"
 
 DEPENDENCIES="
     build+run:
         dev-libs/libyaml
         dev-libs/tllist
         media-libs/fcft
+        x11-libs/pixman:1
+	X? (
+	x11-libs/libxcb
+	x11-libs/libX11
+	)
+	wayland? (
         sys-libs/wayland
         sys-libs/wayland-protocols
-        x11-libs/pixman:1
+	)
 "
-
