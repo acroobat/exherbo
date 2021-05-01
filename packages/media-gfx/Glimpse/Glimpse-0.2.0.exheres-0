@@ -1,6 +1,0 @@
-# Copyright 2008 Richard Brown
-# Distributed under the terms of the GNU General Public License v2
-
-require Glimpse
-
-PLATFORMS="~amd64 ~x86"
