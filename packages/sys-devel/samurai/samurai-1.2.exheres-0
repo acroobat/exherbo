@@ -1,0 +1,28 @@
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user='michaelforney' tag=${PV} ]
+
+PLATFORMS="~x86 ~amd64"
+SUMMARY="ninja-compatible build tool written in C"
+
+SLOT="0"
+LICENCES="ISC Apache-2.0 MIT"
+MYOPTIONS=""
+
+DEPENDENCIES=""
+
+DEFAULT_SRC_COMPILE_PARAMS=( CC=${CC} LDFLAGS=${LDFLAGS} CFLAGS="${CFLAGS}" )
+
+DEFAULT_SRC_INSTALL_PARAMS=( PREFIX=/usr BINDIR=/usr/$(exhost --target)/bin MANPREFIX=/usr/share/man )
+
+src_prepare() {
+	default
+}
+
+src_compile() {
+	default
+}
+
+src_install() {
+	default
+}
