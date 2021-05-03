@@ -24,3 +24,7 @@ DEPENDENCIES="
         sys-libs/wayland-protocols
 	)
 "
+MESON_SRC_CONFIGURE_OPTION_FEATURES=(
+     'X backend-x11'
+     'wayland backend-wayland'
+ )
