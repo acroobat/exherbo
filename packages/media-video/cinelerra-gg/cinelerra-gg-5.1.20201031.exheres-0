@@ -1,6 +1,5 @@
-# Copyright 2010 Xavier Barrachina <xabarci@doctor.upv.es>
-#        media-libs/jpeg[>=7]
 # Distributed under the terms of the GNU General Public License v2
+# Exheres is now working for now. I hope cinelerra will change their build method without third-party stuff.
 
 require cinelerra-gg
 
