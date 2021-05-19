@@ -1,0 +1,7 @@
+# Copyright 2010 Xavier Barrachina <xabarci@doctor.upv.es>
+#        media-libs/jpeg[>=7]
+# Distributed under the terms of the GNU General Public License v2
+
+require cinelerra-gg
+
+PLATFORMS="~amd64 ~x86"

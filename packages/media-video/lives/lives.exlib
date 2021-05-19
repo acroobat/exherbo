@@ -1,0 +1,111 @@
+# Copyright 2010 Xavier Barrachina <xabarci@doctor.upv.es>
+#        media-libs/jpeg[>=7]
+# Distributed under the terms of the GNU General Public License v2
+
+
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ] flag-o-matic
+
+export_exlib_phases src_prepare src_configure src_compile src_install
+
+SUMMARY="The most advanced non-linear video editor and compositor for Linux"
+HOMEPAGE="http://${PN}.org"
+UPSTREAM_DOCUMENTATION="${HOMEPAGE}/docs.php"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS="
+    alsa     [[ description = [ Adds support for alsa (Advanced Linux Sound Architecture ] ]]
+    ieee1394 [[ description = [ Enable FireWire/iLink IEEE1394 support (dv, camera, ...) ] ]]
+    opengl   [[ description = [ Enable hardware acceleration using OpenGL ] ]]
+"
+DOWNLOADS="
+    listed-only:
+https://cinelerra-gg.org/download/pkgs/src/cin_${PV}-src.tgz"
+
+DEPENDENCIES="
+    build+run:
+        media/ffmpeg[>=0.5.1]
+        media-libs/a52dec[>=0.7.4]
+        media-libs/faac[>=1.28]
+        media-libs/faad2[>=2.7]
+        media-libs/flac[>=1.2.1]
+        media-libs/freetype:2[>=2.3.11]
+        media-libs/ilmbase[>=1.0.1]
+        media-libs/libdv[>=1.0.0]
+        media-libs/libogg[>=1.2.0]
+        media-libs/libpng[>=1.2.43]
+        media-libs/libsndfile[>=1.0.21]
+        media-libs/libtheora[>=1.1.1]
+        media-libs/libvorbis[>=1.3.1]
+        media-libs/openexr[>=1.6.1]
+        media-libs/tiff[>=3.9.2-r1]
+        media-libs/x264[>=20100119]
+        media-sound/lame[>=3.98.2]
+        media-video/mjpegtools[>=1.9.0]
+        sci-libs/fftw[>=3.2.2]
+        sys-apps/util-linux[>=2.17.2]
+        x11-libs/libX11
+        x11-libs/libXau
+        x11-libs/libxcb
+        x11-libs/libXdmcp
+        x11-libs/libXext
+        x11-libs/libXv
+        x11-libs/libXxf86vm
+        alsa? ( sys-sound/alsa-lib[>=0.9] )
+	ieee1394? (
+		media-libs/libavc1394[>=0.5.3]
+		media-libs/libiec61883[>=1.2.0]
+		media-libs/libraw1394[>=2.0.5]
+	)
+        opengl? ( x11-dri/mesa[>=7.3] )
+"
+
+WORK="${WORKBASE}/cinelerra-5.1"
+
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --disable-static-build
+    --with-plugindir=/usr/${LIBDIR}/${PN}
+    --with-lv2=no
+    --with-vdpau=no
+    --with-nv=no
+    --with-libzmpeg=no
+    --with-thirdparty=no
+    --with-wintv=no
+    --with-x10tv=no
+    --with-libzmpeg=no
+    --disable-mjpegtools
+    --disable-a52dec
+    --disable-ffmpeg
+    --disable-djbfft
+    --with-exec-name=cinelerra-gg
+)
+
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=(
+    alsa
+    'ieee1394 firewire'
+    opengl
+)
+
+
+cinelerra-gg_src_prepare() {
+    edo ./autogen.sh
+#    export AR="${AR}"
+    autotools_src_prepare
+    export AR=/usr/$(exhost --target)/bin/$(exhost --tool-prefix)ar
+#    edo echo "AR = ${AR}" >> Makefile.am
+
+    default
+}
+
+cinelerra-gg_src_configure() {
+    default
+}
+
+cinelerra-gg_src_compile() {
+    default
+}
+
+cinelerra-gg_src_install() {
+    default
+}
