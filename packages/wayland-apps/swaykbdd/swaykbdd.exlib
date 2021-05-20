@@ -6,6 +6,7 @@ require meson
 SUMMARY="Per-window keyboard layouts for Sway"
 
 LICENCES="MIT"
+#LANGUAGE="MacroC"
 SLOT="0"
 MYOPTIONS=""
 
