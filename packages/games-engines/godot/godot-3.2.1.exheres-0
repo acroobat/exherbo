@@ -6,6 +6,7 @@ require github [ user='godotengine' tag=${PV}-stable ] scons
 SUMMARY="Multi-platform 2D and 3D game engine"
 
 LICENCES="MIT"
+#LANGUAGES="C++"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS="
