@@ -12,6 +12,7 @@ HOMEPAGE="http://${PN}.org"
 UPSTREAM_DOCUMENTATION="${HOMEPAGE}/docs.php"
 
 LICENCES="GPL-2"
+#LANGUAGE="C++"
 SLOT="0"
 MYOPTIONS="
     alsa     [[ description = [ Adds support for alsa (Advanced Linux Sound Architecture ] ]]
