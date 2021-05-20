@@ -15,6 +15,7 @@ SUMMARY="SVG parsing library"
 HOMEPAGE="http://live.gnome.org/LibRsvg"
 
 LICENCES="LGPL-2.1"
+#LANGUAGE="MacroC"
 SLOT="2"
 MYOPTIONS="
     gobject-introspection
