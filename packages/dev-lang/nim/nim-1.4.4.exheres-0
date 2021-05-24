@@ -5,7 +5,7 @@
 SUMMARY="compiled, garbage-collected systems programming language"
 DOWNLOADS="https://nim-lang.org/download/nim-${PV}.tar.xz"
 LICENCES="MIT"
-#LANGUAGE="Nim"
+#LANGUAGES="Nim"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
