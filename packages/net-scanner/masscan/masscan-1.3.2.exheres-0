@@ -6,7 +6,7 @@ PLATFORMS="~x86 ~amd64"
 SUMMARY="Mass IP port scanner"
 
 SLOT="0"
-#LANGUAGE="MacroC"
+#LANGUAGE="C"
 LICENCES="AGPL-3"
 MYOPTIONS=""
 
