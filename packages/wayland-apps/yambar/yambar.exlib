@@ -6,7 +6,7 @@ require meson
 SUMMARY="Modular status panel for X11 and Wayland, inspired by polybar"
 
 LICENCES="MIT"
-#LANGUAGE="MacroC"
+#LANGUAGE="C"
 SLOT="0"
 MYOPTIONS="X wayland"
 
