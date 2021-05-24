@@ -6,7 +6,7 @@ PLATFORMS="~x86 ~amd64"
 SUMMARY="ninja-compatible build tool written in C"
 
 SLOT="0"
-#LANGUAGE="MacroC"
+#LANGUAGE="C"
 LICENCES="ISC Apache-2.0 MIT"
 MYOPTIONS=""
 
