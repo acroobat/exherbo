@@ -5,7 +5,7 @@ require github [ user='AntiMicroX' tag=${PV} ] cmake [ api=2 ]
 SUMMARY="Graphical program used to map keyboard buttons and mouse controls to a gamepad"
 
 LICENCES="GPL3"
-#LANGUAGE="C++"
+#LANGUAGES="C++"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
