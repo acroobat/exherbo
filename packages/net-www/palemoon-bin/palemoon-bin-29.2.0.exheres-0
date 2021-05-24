@@ -5,6 +5,7 @@ HOMEPAGE="https://www.palemoon.org/"
 
 SLOT="0"
 LICENCES="MPL-2.0 GPL-2 LGPL-2.1"
+#LANGUAGES=""
 MYOPTIONS=""
 
 MY_PN="${PN/-bin/}"
