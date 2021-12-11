@@ -14,7 +14,7 @@ DEPENDENCIES="
     build+run:
         dev-libs/libyaml
         dev-libs/tllist
-        media-libs/fcft
+        media-libs/fcft[>=2.4.0]
         x11-libs/pixman:1
 	X? (
 	x11-libs/libxcb
